@@ -5,7 +5,7 @@
 #include <imgui-SFML.h>
 
 
-//#include "ImGui/Gui.hpp"
+#include "ImGui/Gui.hpp"
 #include "Player.h"
 
 using namespace std;
@@ -14,13 +14,12 @@ int main()
 {
     Player player = Player(sf::Vector2f(300, 250));
 
-    //sf::RenderWindow window(sf::VideoMode(600, 500), "GAME", sf::Style::Fullscreen);
-    sf::RenderWindow window(sf::VideoMode(600, 500), "GAME");
+    //sf::RenderWindow window(sf::VideoMode(600, 500), "GAME");
+    sf::RenderWindow window(sf::VideoMode(600, 500), "GAME", sf::Style::Fullscreen);
 
     ImGui::SFML::Init(window);
 
-    
-	//SetImGuiStyle();
+	SetImGuiStyle();
 
     window.setFramerateLimit(60);
 
@@ -49,7 +48,7 @@ int main()
 
 
         //ImGui GUI
-        //GuiWindow.Draw(&player);
+        GuiWindow.Draw(&player);
         //GuiWindow.Log("TEST");
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {

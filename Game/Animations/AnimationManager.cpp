@@ -18,7 +18,7 @@ void AnimationManager::Update(sf::Sprite& sprite)
 {
 	auto pos = animations_map.find(currentAnimation);
 	if (pos == animations_map.end()) {
-		//Logger.Log("Can't find animation");
+		Logger.Log("Can't find animation" + currentAnimation);
 	}
 	else {
 		Animation animation = pos->second;

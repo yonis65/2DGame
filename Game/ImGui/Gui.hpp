@@ -3,7 +3,7 @@
 
 #include <imgui.h>
 #include <imgui-SFML.h>
-#include "../Player.h"
+//#include "../Player.h"
 
 using namespace std;
 
@@ -127,7 +127,7 @@ struct MainWindow
 		logger = Logger;
 	}
 
-	void Draw(Player* player) {
+	void Draw(auto* player) {
 		logger->Draw("Logger", show_logger);
 		ImGui::Begin("Main");
 		ImGui::SliderFloat("Player Velocity", &player->vel, 0, 20);

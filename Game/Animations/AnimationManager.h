@@ -2,12 +2,11 @@
 #include <vector>
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "../ImGui/Gui.hpp"
 
 
 using namespace std;
 
-//#include "../ImGui/Gui.hpp"
-//#include "Animation.h"
 
 struct Animation {
 	string base_path;
