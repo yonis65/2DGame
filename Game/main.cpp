@@ -38,6 +38,9 @@ int main()
                     if (event.key.code == sf::Keyboard::Escape) {
                         window.close();
                     }
+                    if (event.key.code == sf::Keyboard::P) {
+                        player.animManager.SwitchAnimation("Dead");
+                    }
                     break;
             }
         }

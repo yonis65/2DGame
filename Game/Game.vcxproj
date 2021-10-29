@@ -148,7 +148,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animations\AnimationManager.cpp" />
-    <ClCompile Include="Animations\Animation.cpp" />
     <ClCompile Include="ImGui\imgui-SFML.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -159,7 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations\AnimationManager.h" />
-    <ClInclude Include="Animations\Animation.h" />
     <ClInclude Include="ImGui\Gui.hpp" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

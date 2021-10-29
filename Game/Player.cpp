@@ -6,9 +6,9 @@ using namespace std;
 Player::Player(sf::Vector2f initial_pos){
 	dir = 0;
 	sprite.setScale(sf::Vector2f(0.3f, 0.3f));
-	Animation* animation = new Animation("src/Run_", 3, 10);
-	animManager.AddAnimations("Running", animation);
-	//animManager.AddAnimations("Running", "src/Run_", 3, 10);
+	animManager.AddAnimation("Run", "src/Run_", 3, 10);
+	animManager.AddAnimation("Dead", "src/Dead_", 3, 10, false);
+	animManager.SwitchAnimation("Run");
 }
 
 void Player::UpdateAnimation() {
@@ -22,7 +22,6 @@ void Player::UpdateAnimation() {
 }
 
 void Player::Stop() {
-	
 }
 
 void Player::Up(){
