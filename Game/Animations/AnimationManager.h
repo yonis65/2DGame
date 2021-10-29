@@ -30,10 +30,14 @@ public:
 	void Update(sf::Sprite& sprite);
 	void Update(sf::Sprite& sprite, bool mirrored);
 
+	int GetAnimationImages();
+	int GetFrame() { return frame; };
+	int GetImg() { return img; };
+	string GetCurrentAnimation() { return currentAnimation; };
+
 	sf::Texture texture;
 
 private:
-	//vector<Animation*> animations;
 	map<string, Animation> animations_map;
 	string currentAnimation;
 	int frame = 0;

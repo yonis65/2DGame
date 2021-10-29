@@ -53,4 +53,17 @@ void AnimationManager::Update(sf::Sprite& sprite, bool mirrored)
 
 }
 
+int AnimationManager::GetAnimationImages()
+{
+	auto pos = animations_map.find(currentAnimation);
+	if (pos == animations_map.end()) {
+		Logger.Log("Can't find animation" + currentAnimation);
+		return -1;
+	}
+	else {
+		Animation animation = pos->second;
+		return animation.total_imgs;
+	}
+}
+
 
