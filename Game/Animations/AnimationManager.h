@@ -51,11 +51,17 @@ public:
 	int GetFrame() { return frame; };
 	int GetImg() { return img; };
 	string GetCurrentAnimation() { return currentAnimation; };
+	map<string, Animation> GetAnimationsMap() { return animations_map; };
 
+	Animation GetAnimationFromName(string name);
 	sf::Texture texture;
 
+	string current_base_path;
+	int current_frames_for_imgs;
+	int current_total_imgs;
+	bool current_loop;
+
 private:
-	Animation GetAnimationFromName(string name);
 	map<string, Animation> animations_map;
 	string currentAnimation;
 	int frame = 0;

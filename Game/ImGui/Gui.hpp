@@ -3,7 +3,6 @@
 
 #include <imgui.h>
 #include <imgui-SFML.h>
-//#include "../Player.h"
 
 using namespace std;
 
@@ -141,10 +140,24 @@ struct MainWindow
 			if (ImGui::TreeNode("Animation"))
 			{
 				string text = "Animation Playing: " + player->animManager.GetCurrentAnimation();
-				ImGui::ProgressBar(percentage, ImVec2(0, 0));
 				ImGui::Text(&text[0]);
 
-				ImGui::SliderFloat("Animation", &player->vel, 0, 20);
+				ImGui::ProgressBar(percentage, ImVec2(0, 0));
+
+				float h = (player->animManager.GetAnimationsMap().size() * 28)+50;
+				ImGui::BeginChildFrame(ImGui::GetID("Animation"), ImVec2(0, h), ImGuiWindowFlags_AlwaysAutoResize);
+				for (std::pair animation : player->animManager.GetAnimationsMap()) {
+
+					if (ImGui::Button(&animation.first[0], ImVec2(0, 0))) {
+						player->animManager.SwitchAnimation(animation.first);
+					}
+					
+					ImGui::Separator();
+				}
+				ImGui::SliderInt("Frames for images", &player->animManager.current_frames_for_imgs, 0, 20);
+				ImGui::Checkbox("Loop", &player->animManager.current_loop);
+
+				ImGui::EndChildFrame();
 
 
 				ImGui::TreePop();

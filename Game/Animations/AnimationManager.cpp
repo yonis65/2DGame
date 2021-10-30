@@ -18,6 +18,13 @@ void AnimationManager::SwitchAnimation(string name)
 	frame = 0;
 	img = 0;
 	playing = true;
+
+	Animation animation = GetAnimationFromName(name);
+	current_base_path = animation.base_path;
+	current_frames_for_imgs = animation.frames_for_imgs;
+	current_total_imgs = animation.total_imgs;
+	current_loop = animation.loop;
+
 	if (callback) {
 		callback(EventType::ANIMATION_CHANGE, name);
 	}
@@ -27,6 +34,7 @@ Animation AnimationManager::GetAnimationFromName(string name) {
 	auto pos = animations_map.find(currentAnimation);
 	if (pos == animations_map.end()) {
 		Logger.Log("Can't find animation" + currentAnimation);
+		return Animation("", 0, 0, false);
 	}
 	else {
 		return pos->second;
@@ -35,14 +43,13 @@ Animation AnimationManager::GetAnimationFromName(string name) {
 
 void AnimationManager::Update(sf::Sprite& sprite)
 {
-	Animation animation = GetAnimationFromName(currentAnimation);
 	if (playing) {
-		if (frame == animation.frames_for_imgs) {
-			texture.loadFromFile(animation.base_path + std::to_string(img) + ".png", sf::IntRect(0, 0, 363, 458));
+		if (frame == current_frames_for_imgs) {
+			texture.loadFromFile(current_base_path + std::to_string(img) + ".png", sf::IntRect(0, 0, 363, 458));
 
-			if (img >= animation.total_imgs - 1) {
+			if (img >= current_total_imgs - 1) {
 				img = 0;
-				if (!animation.loop) {
+				if (!current_loop) {
 					playing = false;
 					if (callback) {
 						callback(EventType::ANIMATION_FINISH, currentAnimation);
@@ -71,8 +78,7 @@ void AnimationManager::Update(sf::Sprite& sprite, bool mirrored)
 
 int AnimationManager::GetAnimationImages()
 {
-	Animation animation = GetAnimationFromName(currentAnimation);
-	return animation.total_imgs;
+	return current_total_imgs;
 }
 
 
