@@ -17,6 +17,7 @@ public:
     void Down();
     void Left();
     void Right();
+    void AnimationCallback(string animation);
 
     void Stop();
 

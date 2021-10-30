@@ -130,19 +130,26 @@ struct MainWindow
 	void Draw(auto* player) {
 		logger->Draw("Logger", show_logger);
 		ImGui::Begin("Main");
-		
 
 		float step_num = (float)player->animManager.GetImg();
 		float total_frames = (float)player->animManager.GetAnimationImages();
 		float percentage = ((100 * step_num) / total_frames)/100;
-
 		if (ImGui::CollapsingHeader("Player"))
 		{
 			ImGui::SliderFloat("Player Velocity", &player->vel, 0, 20);
-			ImGui::ProgressBar(percentage, ImVec2(0, 0));
-			ImGui::SameLine();
-			string text = "Animation Playing: " + player->animManager.GetCurrentAnimation();
-			ImGui::Text(&text[0]);
+			ImGui::Separator();
+			if (ImGui::TreeNode("Animation"))
+			{
+				string text = "Animation Playing: " + player->animManager.GetCurrentAnimation();
+				ImGui::ProgressBar(percentage, ImVec2(0, 0));
+				ImGui::Text(&text[0]);
+
+				ImGui::SliderFloat("Animation", &player->vel, 0, 20);
+
+
+				ImGui::TreePop();
+				ImGui::Separator();
+			}
 		}
 		ImGui::Checkbox("Show Logger##logger_checkbox", &show_logger);
 

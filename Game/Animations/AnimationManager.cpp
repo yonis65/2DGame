@@ -1,6 +1,6 @@
 #include "AnimationManager.h"
 
-void AnimationManager::AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, std::function<void(string)> fn, bool loop) {
+void AnimationManager::AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, function<void(string)> fn, bool loop) {
 	Animation animation = Animation(base_path, frames_for_imgs, total_imgs, fn, loop);
 	animations_map.insert(pair<string, Animation>(name, animation));
 }
