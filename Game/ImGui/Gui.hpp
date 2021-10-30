@@ -6,6 +6,9 @@
 
 using namespace std;
 
+inline int x = 0;
+inline int y = 0;
+
 inline void SetImGuiStyle() {
 	ImGuiStyle* style = &ImGui::GetStyle();
 	ImVec4* colors = style->Colors;
@@ -136,6 +139,12 @@ struct MainWindow
 		if (ImGui::CollapsingHeader("Player"))
 		{
 			ImGui::SliderFloat("Player Velocity", &player->vel, 0, 20);
+			ImGui::Separator();
+			ImGui::SliderInt("X", &x, 0, 1000);
+			ImGui::SliderInt("Y", &y, 0, 1000);
+			if (ImGui::Button("Set Position", ImVec2(0, 0))) {
+				player->sprite.setPosition(x, y);
+			}
 			ImGui::Separator();
 			if (ImGui::TreeNode("Animation"))
 			{

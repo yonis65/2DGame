@@ -56,9 +56,9 @@ public:
 	sf::Texture texture;
 
 	string current_base_path;
-	int current_frames_for_imgs;
-	int current_total_imgs;
-	bool current_loop;
+	int current_frames_for_imgs = 0;
+	int current_total_imgs = 0;
+	bool current_loop = 0;
 
 private:
 	map<string, Animation> animations_map;

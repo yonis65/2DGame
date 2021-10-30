@@ -25,7 +25,7 @@ int main()
 
     sf::Clock deltaClock;
     while (window.isOpen()){
-        player.UpdateAnimation();
+        player.Update();
         sf::Event event;
         while (window.pollEvent(event)){
             ImGui::SFML::ProcessEvent(event);
@@ -40,6 +40,7 @@ int main()
                     if (event.key.code == sf::Keyboard::P) {
                         player.animManager.SwitchAnimation("Dead");
                     }
+                    
                     break;
             }
         }
@@ -49,14 +50,7 @@ int main()
 
         //ImGui GUI
         GuiWindow.Draw(&player);
-        //GuiWindow.Log("TEST");
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-            player.Up();
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
-            player.Down();
-        }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
             player.Left();
         }

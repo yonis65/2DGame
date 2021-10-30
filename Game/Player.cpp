@@ -24,25 +24,13 @@ Player::Player(sf::Vector2f initial_pos){
 	animManager.SwitchAnimation("Run");
 }
 
-void Player::UpdateAnimation() {
+void Player::Update() {
 	if (dir == 1) {
 		animManager.Update(sprite, true);
 	}
 	else{
 		animManager.Update(sprite, false);
 	}
-	//animManager.Update(sprite);
-}
-
-void Player::Stop() {
-}
-
-void Player::Up(){
-	sprite.move(0.f, -vel);
-}
-
-void Player::Down() {
-	sprite.move(0.f, vel);
 }
 
 void Player::Right() {
