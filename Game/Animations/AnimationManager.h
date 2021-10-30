@@ -3,7 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../ImGui/Gui.hpp"
-
+#include <functional>
 
 using namespace std;
 
@@ -13,6 +13,15 @@ struct Animation {
 	int frames_for_imgs;
 	int total_imgs;
 	bool loop;
+	std::function<void(string)> callback;
+
+	Animation(string base_path, int frames_for_imgs, int total_imgs, std::function<void(string)> fn, bool loop) {
+		Animation::base_path = base_path;
+		Animation::frames_for_imgs = frames_for_imgs;
+		Animation::total_imgs = total_imgs;
+		Animation::loop = loop;
+		callback = std::bind(fn, std::placeholders::_1);
+	}
 
 	Animation(string base_path, int frames_for_imgs, int total_imgs, bool loop) {
 		Animation::base_path = base_path;
@@ -25,6 +34,7 @@ struct Animation {
 class AnimationManager
 {
 public:
+	void AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, std::function<void(string)> fn, bool loop = true);
 	void AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, bool loop = true);
 	void SwitchAnimation(string name);
 	void Update(sf::Sprite& sprite);

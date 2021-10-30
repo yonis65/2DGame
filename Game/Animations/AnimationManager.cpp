@@ -1,10 +1,14 @@
 #include "AnimationManager.h"
 
+void AnimationManager::AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, std::function<void(string)> fn, bool loop) {
+	Animation animation = Animation(base_path, frames_for_imgs, total_imgs, fn, loop);
+	animations_map.insert(pair<string, Animation>(name, animation));
+}
+
 void AnimationManager::AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, bool loop) {
 	Animation animation = Animation(base_path, frames_for_imgs, total_imgs, loop);
 	animations_map.insert(pair<string, Animation>(name, animation));
 }
-
 
 void AnimationManager::SwitchAnimation(string name)
 {
@@ -30,6 +34,9 @@ void AnimationManager::Update(sf::Sprite& sprite)
 					img = 0;
 					if (!animation.loop) {
 						playing = false;
+						if (animation.callback) {
+							animation.callback(currentAnimation);
+						}
 					}
 				}
 				else {

@@ -3,11 +3,15 @@
 
 using namespace std;
 
+void callback(string animation) {
+	Logger.Log(animation);
+}
+
 Player::Player(sf::Vector2f initial_pos){
 	dir = 0;
 	sprite.setScale(sf::Vector2f(0.3f, 0.3f));
-	animManager.AddAnimation("Run", "src/Run_", 3, 10);
-	animManager.AddAnimation("Dead", "src/Dead_", 3, 10, false);
+	animManager.AddAnimation("Run", "src/Run_", 3, 10, callback);
+	animManager.AddAnimation("Dead", "src/Dead_", 3, 10, callback, false);
 	animManager.SwitchAnimation("Run");
 }
 

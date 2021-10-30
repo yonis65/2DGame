@@ -21,7 +21,7 @@ int main()
 
 	SetImGuiStyle();
 
-    window.setFramerateLimit(10);
+    window.setFramerateLimit(60);
 
     sf::Clock deltaClock;
     while (window.isOpen()){
