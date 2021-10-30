@@ -42,8 +42,7 @@ class AnimationManager
 public:
 	void AddAnimation(string name, string base_path, int frames_for_imgs, int total_imgs, bool loop = true);
 	void SwitchAnimation(string name);
-	void Update(sf::Sprite& sprite);
-	void Update(sf::Sprite& sprite, bool mirrored);
+	void Update(sf::Sprite& sprite, bool mirrored = false);
 	void SetCallBack(std::function<void(EventType, string)> fn);
 
 

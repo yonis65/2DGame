@@ -19,6 +19,7 @@ void AnimationManager::SwitchAnimation(string name)
 	img = 0;
 	playing = true;
 
+
 	Animation animation = GetAnimationFromName(name);
 	current_base_path = animation.base_path;
 	current_frames_for_imgs = animation.frames_for_imgs;
@@ -41,7 +42,7 @@ Animation AnimationManager::GetAnimationFromName(string name) {
 	}
 }
 
-void AnimationManager::Update(sf::Sprite& sprite)
+void AnimationManager::Update(sf::Sprite& sprite, bool mirror)
 {
 	if (playing) {
 		if (frame == current_frames_for_imgs) {
@@ -66,13 +67,12 @@ void AnimationManager::Update(sf::Sprite& sprite)
 		frame++;
 	}
 	sprite.setTexture(texture);
-	sprite.setTextureRect(sf::IntRect(0, 0, 363, 458));
-
-}
-
-void AnimationManager::Update(sf::Sprite& sprite, bool mirrored)
-{
-	sprite.setTexture(texture);
+	if (mirror) {
+		sprite.setTextureRect(sf::IntRect(363, 0, -363, 458));
+	}
+	else {
+		sprite.setTextureRect(sf::IntRect(0, 0, 363, 458));
+	}
 
 }
 

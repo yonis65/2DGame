@@ -25,13 +25,13 @@ Player::Player(sf::Vector2f initial_pos){
 }
 
 void Player::UpdateAnimation() {
-	//if (dir == 1) {
-	//	animManager.Update(sprite, true);
-	//}
-	//else{
-	//	animManager.Update(sprite, false);
-	//}
-	animManager.Update(sprite);
+	if (dir == 1) {
+		animManager.Update(sprite, true);
+	}
+	else{
+		animManager.Update(sprite, false);
+	}
+	//animManager.Update(sprite);
 }
 
 void Player::Stop() {
