@@ -19,8 +19,8 @@ Player::Player() {
 	sprite.setScale(sf::Vector2f(0.3f, 0.3f));
 	auto callback = bind(&Player::AnimationCallback, this, std::placeholders::_1, std::placeholders::_2);
 	animManager.SetCallBack(callback);
-	animManager.AddAnimation("Run", "src/Run_", 3, 10);
-	animManager.AddAnimation("Dead", "src/Dead_", 3, 10, false);
+	animManager.AddAnimation("Run", "src/sprites/Run_", 3, 10);
+	animManager.AddAnimation("Dead", "src/sprites/Dead_", 3, 10, false);
 	animManager.SwitchAnimation("Run");
 }
 

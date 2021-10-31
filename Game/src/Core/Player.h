@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "ImGui/Gui.hpp"
+#include "../Debug/ImGui/Gui.hpp"
 #include "Animations/AnimationManager.h"
 
 class Player{

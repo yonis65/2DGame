@@ -15,39 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="src\Core\Player.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui.cpp">
+    <ClCompile Include="src\Debug\ImGui\imgui.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_draw.cpp">
+    <ClCompile Include="src\Debug\ImGui\imgui_draw.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_tables.cpp">
+    <ClCompile Include="src\Debug\ImGui\imgui_tables.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_widgets.cpp">
+    <ClCompile Include="src\Debug\ImGui\imgui_widgets.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui-SFML.cpp">
+    <ClCompile Include="src\Debug\ImGui\imgui-SFML.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Animations\AnimationManager.cpp">
+    <ClCompile Include="src\Core\Animations\AnimationManager.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="src\Core\Player.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Animations\AnimationManager.h">
+    <ClInclude Include="src\Core\Animations\AnimationManager.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\Gui.hpp">
+    <ClInclude Include="src\Debug\ImGui\Gui.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,5 @@
-#include "ImGui/Gui.hpp"
-#include "Player.h"
+#include "Debug/ImGui/Gui.hpp"
+#include "Core/Player.h"
 
 #include <iostream>
 

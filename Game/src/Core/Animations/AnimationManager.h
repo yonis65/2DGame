@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "../ImGui/Gui.hpp"
+#include "../../Debug/ImGui/Gui.hpp"
 #include <functional>
 
 using namespace std;

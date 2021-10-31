@@ -147,19 +147,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Animations\AnimationManager.cpp" />
-    <ClCompile Include="ImGui\imgui-SFML.cpp" />
-    <ClCompile Include="ImGui\imgui.cpp" />
-    <ClCompile Include="ImGui\imgui_draw.cpp" />
-    <ClCompile Include="ImGui\imgui_tables.cpp" />
-    <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="src\Core\Animations\AnimationManager.cpp" />
+    <ClCompile Include="src\Debug\ImGui\imgui-SFML.cpp" />
+    <ClCompile Include="src\Debug\ImGui\imgui.cpp" />
+    <ClCompile Include="src\Debug\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="src\Debug\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="src\Debug\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Core\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animations\AnimationManager.h" />
-    <ClInclude Include="ImGui\Gui.hpp" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="src\Core\Animations\AnimationManager.h" />
+    <ClInclude Include="src\Debug\ImGui\Gui.hpp" />
+    <ClInclude Include="src\Core\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
