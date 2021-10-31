@@ -136,6 +136,7 @@ struct MainWindow
 		float step_num = (float)player->animManager.GetImg();
 		float total_frames = (float)player->animManager.GetAnimationImages();
 		float percentage = ((100 * step_num) / total_frames)/100;
+
 		if (ImGui::CollapsingHeader("Player"))
 		{
 			ImGui::SliderFloat("Player Velocity", &player->vel, 0, 20);
@@ -143,7 +144,7 @@ struct MainWindow
 			ImGui::SliderInt("X", &x, 0, 1000);
 			ImGui::SliderInt("Y", &y, 0, 1000);
 			if (ImGui::Button("Set Position", ImVec2(0, 0))) {
-				player->sprite.setPosition(x, y);
+				player->sprite.setPosition((float)x, (float)y);
 			}
 			ImGui::Separator();
 			if (ImGui::TreeNode("Animation"))
@@ -153,7 +154,7 @@ struct MainWindow
 
 				ImGui::ProgressBar(percentage, ImVec2(0, 0));
 
-				float h = (player->animManager.GetAnimationsMap().size() * 28)+50;
+				float h = ((float)player->animManager.GetAnimationsMap().size() * 28)+50;
 				ImGui::BeginChildFrame(ImGui::GetID("Animation"), ImVec2(0, h), ImGuiWindowFlags_AlwaysAutoResize);
 				for (std::pair animation : player->animManager.GetAnimationsMap()) {
 

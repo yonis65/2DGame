@@ -5,7 +5,7 @@
 
 class Player{
 public:
-    Player(sf::Vector2f initial_pos);
+    Player();
     
     sf::Sprite sprite;
     sf::Texture texture;
@@ -17,10 +17,11 @@ public:
     void AnimationCallback(EventType event, string animation);
 
     void Update();
+    void Jump();
     float vel = 7;
 
 private:
     int dir = 0;
-
+    float gravity = 0;
 };
 

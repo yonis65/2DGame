@@ -1,3 +1,6 @@
+#include "ImGui/Gui.hpp"
+#include "Player.h"
+
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
@@ -5,15 +8,12 @@
 #include <imgui-SFML.h>
 
 
-#include "ImGui/Gui.hpp"
-#include "Player.h"
-
 using namespace std;
+
 
 int main()
 {
-    Player player = Player(sf::Vector2f(300, 250));
-
+    Player player = Player();
     //sf::RenderWindow window(sf::VideoMode(600, 500), "GAME");
     sf::RenderWindow window(sf::VideoMode(600, 500), "GAME", sf::Style::Fullscreen);
 
@@ -40,7 +40,9 @@ int main()
                     if (event.key.code == sf::Keyboard::P) {
                         player.animManager.SwitchAnimation("Dead");
                     }
-                    
+                    if (event.key.code == sf::Keyboard::Space) {
+                        player.Jump();
+                    }
                     break;
             }
         }
